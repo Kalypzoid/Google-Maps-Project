@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Simple markers</title>
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        height: 100%;
+      }
+      .results {
+        -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+          position: absolute;
+          top: 25px;
+          right: 10px;
+          background: rgba(255,255,255, 0.9);
+          width: 25%;
+          max-height: 90%;
+          border: 1px solid gray;
+      }
+      #results-list {
+        padding: 0;
+        list-style-type: none;
+        overflow: auto;
+        max-height: 450px;
+      }
+
+      #results-list li {
+        border-top: 1px solid #e0e0e0;
+        padding: 0 24px;
+        cursor: pointer;
+      }
+
+      #results-list li h4 {
+        margin-bottom: 0;
+        color: #2A6496;
+      }
+
+      #results-list .address {
+        font-size: 12px;
+        line-height: 1.4;
+        margin-top: 4px;
+      }
+
+      #results-list p {
+        font-size: 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"><!-- Map goes here! --></div>
+
+    <div class="results">
+      <div>
+        <ul id="results-list" data-bind="foreach: markers">
+          <li>
+            <h4 data-bind="text: name"></h4>
+            <p class="address" data-bind="text: address"></p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  
+    <script src="http://maps.googleapis.com/maps/api/js?sensor=false&callback=initialize" async defer></script>
+    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/knockout/knockout-3.0.0.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+  </body>
+</html>
